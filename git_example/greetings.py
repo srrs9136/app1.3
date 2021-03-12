@@ -1,0 +1,1 @@
+greet = ['good morning', "hello", "hi", "howdy"]
