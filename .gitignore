@@ -44,4 +44,4 @@ files-master/App-9-Instant-Dictionary-API/data.csv
 files-master/App-9-Instant-Dictionary-API/definition.py
 files-master/App-9-Instant-Dictionary-API/requirements.txt
 /files-master
-
+git_example/__pycache__
