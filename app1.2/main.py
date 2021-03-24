@@ -65,18 +65,27 @@ class PdfReport:
         pdf.cell(w=150, h=25, txt=flatmate2_pay, border=0, ln=1)
         
         # self.filename becasue filename is local variable inside the __init_method and not generate method. 
-        pdf.output('C:\\Users\\sdevk\\OneDrive\\Desktop\\Ardit\\app1.2\\Report1.pdf', 'F')  
+        pdf.output(self.filename)  
 
         # To open the generated pdf automatically on a webbrowser. But doesnt seems to work (3/23/21)
-        webbrowser.open(self.filename)   
+        webbrowser.open(self.filename) 
 
-the_bill = Bill(amount=120, period="April 2021")
-john = Flatmate(name="John", days_in_house=20)
-mary = Flatmate(name="Mary", days_in_house=25)
+amount = float(input("Hey User, enter the build amount: "))
+period = input("What is the bill period? E.g. December 2020: ")
 
-print("John pays: ", john.pays(bill=the_bill, flatmate2=mary))
-print("Mary pays: ", mary.pays(bill=the_bill, flatmate2=john))
+name1 = input("What is your name? ")
+days_in_house1 = int(input(f"How many days did {name1} spend in the house during the bill period?: "))
+
+name2 = input("What is the name of the other flatmate? ")
+days_in_house2 = int(input(f"How many days did {name2} spend in the house during the bill period?: "))
+
+the_bill = Bill(amount, period)
+flatmate1 = Flatmate(name1, days_in_house1)
+flatmate2 = Flatmate(name2, days_in_house2)
+
+print(f"{flatmate1.name} pays: ", flatmate1.pays(the_bill, flatmate2))
+print(f"{flatmate2.name} pays: ", flatmate2.pays(the_bill, flatmate1))
 
 # Calling the generate method
-pdf_report = PdfReport(filename="Report1.pdf")
-pdf_report.generate(flatmate1=john, flatmate2=mary, bill=the_bill)
+pdf_report = PdfReport(filename=f"{the_bill.period}.pdf")
+pdf_report.generate(flatmate1, flatmate2, the_bill)
