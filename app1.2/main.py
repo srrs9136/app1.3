@@ -4,7 +4,7 @@ from reports import PdfReport
     
 
 amount = float(input("Hey User, enter the build amount: "))
-period = input("What is the bill period? E.g. December 2020: ")
+period = input("What is the bill period? E.g. December 2020: ") 
 
 name1 = input("What is your name? ")
 days_in_house1 = int(input(f"How many days did {name1} spend in the house during the bill period?: "))
