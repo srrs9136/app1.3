@@ -45,7 +45,7 @@ while True:
     if shape_type == 'quit':
         break
 
-canvas.make(imagepath='app1.3\\canvas.png')
+canvas.make(imagepath='app1.3\\files\\canvas.png')
 
 
 """ Below is old Code before the input() functions used above; for static data"""
