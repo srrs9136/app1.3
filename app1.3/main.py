@@ -2,8 +2,8 @@ from shapes import Rectangle, Square
 from canvas import Canvas
 
 # Get canvas width and height from the user
-canvas_width = input("Enter the width of canvas: ")
-canvas_height = input("Enter the height of canvas: ")
+canvas_width = int(input("Enter the width of canvas: "))
+canvas_height = int(input("Enter the height of canvas: ")) 
 
 # Make a dictionary of color codes and prompt for color
 colors = {"white": (255,255,255), "black": (0,0,0)}
@@ -29,7 +29,7 @@ while True:
         r1.draw(canvas)
 
     if shape_type.lower() == "square":
-        rq_x = int(input("Enter x of the square "))
+        sq_x = int(input("Enter x of the square "))
         sq_y = int(input("Enter y of the square: "))
         sq_side = int(input("Enter the side of the square: "))
         red = int(input("How much RED should the square have? "))
@@ -37,10 +37,18 @@ while True:
         blue = int(input("How much BLUE should the square have? "))
 
         # Create the square
-        s1 = Square(x=rec_x, y=rec_y, side=sq_side, color=(red,green,blue))
-        s1.draw(canvas)    
+        s1 = Square(x=sq_x, y=sq_y, side=sq_side, color=(red,green,blue))
+        s1.draw(canvas) 
 
 
+    # Break the loop if the user entered 'quit'
+    if shape_type == 'quit':
+        break
+
+canvas.make(imagepath='app1.3\\canvas.png')
+
+
+""" Below is old Code before the input() functions used above; for static data"""
 # canvas = Canvas(width=10, height=10, color=(255,255,255))
 # r1 = Rectangle(x=1,y=6,width=5,height=2,color=(100,124,0))
 # r1.draw(canvas)
@@ -48,7 +56,6 @@ while True:
 # s1.draw(canvas)
 
 
-canvas.make(imagepath='app1.3\\canvas.png')
 
 
 
